@@ -1,7 +1,7 @@
 package com.alayon.challenge;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,13 +15,8 @@ public class ChallengeOne {
 			temp=list.get(i+1);
 		}
 		for(int element:list) {
-			
-			LinkedList<Integer> result = new LinkedList<>();
-			while (element > 0) {
-				if(element % 10<9) {
-			    result.push(element % 10);}
-			    element /= 10;
-			}
+			String s=String.valueOf(element);			
+			List<String> result = Arrays.asList(s.split("9"));			
 			String numberString = result.stream().map(String::valueOf)
 				    .collect(Collectors.joining(""));
 			if(!numberString.isEmpty()) {
