@@ -16,9 +16,12 @@ public class ChallengeThree {
 			matrix.get(i).add(1);
 		}
 		
-		for(int i=1;i<=max;i++) {
+		for(int i=1;i<=max+1;i++) {
+
 			matrix.get(0).add(0);
+
 			for(int j=1;j<=list.size();j++) {
+				
 				if(matrix.get(j-1).get(i)==1) {
 					matrix.get(j).add(1);
 				}else if(i<list.get(j-1)) {
@@ -26,18 +29,19 @@ public class ChallengeThree {
 				}else {
 			matrix.get(j).add(matrix.get(j-1).get(i-list.get(j-1)));
 				}
+					}
 			
-		}
-			min=i+1;
-			if(matrix.get(list.size()).get(matrix.get(1).size()-1)==0){
+			if((matrix.get(list.size()).get(i)==0)){
 				
 				break;
 			}
+			min=matrix.get(list.size()).size();
 		}	
 
-		System.out.println(matrix);
-		System.out.println(matrix.size());
 		
+		for(List<Integer> element:matrix) {
+		System.out.println(element);
+		}
 		
 		return min;
 	}
